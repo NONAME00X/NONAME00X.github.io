@@ -41,7 +41,7 @@
 </li>
 <li><p>添加到GITHUB:个人设置settings中添加ssh</p>
 </li>
-<li><p>测试连接 ssh -T <a href="mailto:&#x67;&#x69;&#x74;&#64;&#x67;&#x69;&#x74;&#104;&#117;&#98;&#x2e;&#99;&#111;&#109;">&#x67;&#x69;&#x74;&#64;&#x67;&#x69;&#x74;&#104;&#117;&#98;&#x2e;&#99;&#111;&#109;</a></p>
+<li><p>测试连接 ssh -T <a href="mailto:&#x67;&#x69;&#116;&#64;&#103;&#105;&#x74;&#x68;&#117;&#98;&#46;&#x63;&#x6f;&#x6d;">&#x67;&#x69;&#116;&#64;&#103;&#105;&#x74;&#x68;&#117;&#98;&#46;&#x63;&#x6f;&#x6d;</a></p>
 <hr>
 </li>
 </ul>
@@ -168,18 +168,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Hello World</title>
-    <url>/2021/11/03/Hello-World/</url>
-    <content><![CDATA[<h1 id="Hello-World"><a href="#Hello-World" class="headerlink" title="Hello World"></a>Hello World</h1><ul>
-<li>当你看到这条文章时，我的Blog搭建成功了(期间被我搞炸了无数次)</li>
-<li>Blog采用了github+hexo,主题为butterfly(随便糊了一下，还在搭建中……)</li>
-</ul>
-]]></content>
-      <tags>
-        <tag>搭建成功</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>C语言学习</title>
     <url>/2021/11/03/C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0/</url>
     <content><![CDATA[<h1 id="C语言学习"><a href="#C语言学习" class="headerlink" title="C语言学习"></a>C语言学习</h1><ol>
@@ -290,6 +278,18 @@
 ]]></content>
       <tags>
         <tag>学习</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2021/11/03/Hello-World/</url>
+    <content><![CDATA[<h1 id="Hello-World"><a href="#Hello-World" class="headerlink" title="Hello World"></a>Hello World</h1><ul>
+<li>当你看到这条文章时，我的Blog搭建成功了(期间被我搞炸了无数次)</li>
+<li>Blog采用了github+hexo,主题为butterfly(随便糊了一下，还在搭建中……)</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>搭建成功</tag>
       </tags>
   </entry>
   <entry>
