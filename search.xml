@@ -1,6 +1,123 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>C语言学习</title>
+    <url>/2021/11/03/C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0/</url>
+    <content><![CDATA[<h1 id="C语言学习"><a href="#C语言学习" class="headerlink" title="C语言学习"></a>C语言学习</h1><ol>
+<li><h4 id="除法："><a href="#除法：" class="headerlink" title="除法："></a>除法：</h4><p>整数相除为整数(无小数部分)，小数相除为小数</p>
+</li>
+<li><h4 id="诸如a-b-a-b："><a href="#诸如a-b-a-b：" class="headerlink" title="诸如a*=b a+=b："></a>诸如a*=b a+=b：</h4><p>从右向左运输，并对每次计算结果的字母赋值</p>
+</li>
+<li><h4 id="scanf和scanf-s"><a href="#scanf和scanf-s" class="headerlink" title="scanf和scanf_s"></a>scanf和scanf_s</h4><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="comment">//scanf_s读取char类型时，第三个参数要加上最大获取多少个数据.</span></span><br><span class="line">如scanf_s(<span class="string">&quot;%c&quot;</span>,c1,<span class="number">1</span>);</span><br></pre></td></tr></table></figure></li>
+<li><h4 id="常用的输出控制符主要有以下几个："><a href="#常用的输出控制符主要有以下几个：" class="headerlink" title="常用的输出控制符主要有以下几个："></a>常用的输出控制符主要有以下几个：</h4><table>
+<thead>
+<tr>
+<th>控制符</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>%d</td>
+<td>按十进制整型数据的实际长度输出。</td>
+</tr>
+<tr>
+<td>%ld</td>
+<td>输出长整型数据。</td>
+</tr>
+<tr>
+<td>%md</td>
+<td>m 为指定的输出字段的宽度。如果数据的位数小于 m，则左端补以空格，若大于 m，则按实际位数输出。</td>
+</tr>
+<tr>
+<td>%0md</td>
+<td>m 为指定的输出字段的宽度。如果数据的位数小于 m，则左端补以0，若大于 m，则按实际位数输出。</td>
+</tr>
+<tr>
+<td>%u</td>
+<td>输出无符号整型（unsigned）。输出无符号整型时也可以用 %d，这时是将无符号转换成有符号数，然后输出。但编程的时候最好不要这么写，因为这样要进行一次转换，使 CPU 多做一次无用功。</td>
+</tr>
+<tr>
+<td>%c</td>
+<td>·用来输出一个字符。</td>
+</tr>
+<tr>
+<td>%f</td>
+<td>用来输出实数，包括单精度和双精度，以小数形式输出。不指定字段宽度，由系统自动指定，整数部分全部输出，小数部分输出 6 位，超过 6 位的四舍五入。</td>
+</tr>
+<tr>
+<td>%.mf</td>
+<td>输出实数时小数点后保留 m 位，注意 m 前面有个点。</td>
+</tr>
+<tr>
+<td>%o</td>
+<td>以八进制整数形式输出，这个就用得很少了，了解一下就行了。</td>
+</tr>
+<tr>
+<td>%s</td>
+<td>用来输出字符串。用 %s 输出字符串同前面直接输出字符串是一样的。但是此时要先定义字符数组或字符指针存储或指向字符串，这个稍后再讲。可打印define后“”的字符串，如#define STR1 “computer”</td>
+</tr>
+<tr>
+<td>%m.ns</td>
+<td>m表示占几格，.n表示保留几位，如输出english,%5.3表示  eng</td>
+</tr>
+<tr>
+<td>%x（或 %X 或 %#x 或 %#X）</td>
+<td>以十六进制形式输出整数，这个很重要。</td>
+</tr>
+<tr>
+<td>%e （%E）</td>
+<td>以指数形式输出，保留6位小数</td>
+</tr>
+</tbody></table>
+</li>
+<li><h4 id="函数："><a href="#函数：" class="headerlink" title="函数："></a>函数：</h4><ul>
+<li><p> 返回值类型：用于限定函数返回值类型，当返回类型为void时，return语句可以省略。</p>
+</li>
+<li><p> 函数名：表示函数的名称。</p>
+</li>
+<li><p> 参数类型：用于限定调用函数时传入函数中的数据类型。</p>
+</li>
+<li><p> 参数：用于接收传入函数的数据</p>
+</li>
+<li><p> return关键字：用于结束函数，将函数的返回值返回函数调用处。</p>
+</li>
+</ul>
+</li>
+<li><h4 id="菜单实现："><a href="#菜单实现：" class="headerlink" title="菜单实现："></a>菜单实现：</h4></li>
+</ol>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">制作一个菜单，使用getchar（）函数。</span><br><span class="line">如果只用一个getchar（），输入的回车会影响到下一个getchar（）；</span><br><span class="line">如果用连续两个getchar（）函数，第二个可以把回车读取掉</span><br><span class="line">    <span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line">    <span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;windows.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">four_test1_1</span><span class="params">( )</span></span>;                <span class="comment">//第一题第一小题 函数声明</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">four_test1_2</span><span class="params">( )</span></span>;                <span class="comment">//第一题第二小题 函数声明</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">four_test2_1</span><span class="params">( )</span></span>;			    <span class="comment">//第二题第一小题 函数声明</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">four_test2_2</span><span class="params">( )</span></span>;			    <span class="comment">//第二题第二小题 函数声明</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">four_Menu</span><span class="params">(<span class="keyword">void</span>)</span>            <span class="comment">//显示菜单并返回选择的功能编号</span></span></span><br><span class="line"><span class="function"></span>&#123;  </span><br><span class="line">	<span class="keyword">int</span> iSelect;</span><br><span class="line">   </span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;\n***************************\n&quot;</span>);  <span class="comment">//显示程序菜单选项</span></span><br><span class="line">   	<span class="built_in">printf</span>(<span class="string">&quot;\n 1. 运行函数 four_test1_1&quot;</span>);</span><br><span class="line">   <span class="built_in">printf</span>(<span class="string">&quot;\n 2. 运行函数 four_test1_2&quot;</span>);</span><br><span class="line">   <span class="built_in">printf</span>(<span class="string">&quot;\n 3. 运行函数 four_test2_1&quot;</span>);</span><br><span class="line">   <span class="built_in">printf</span>(<span class="string">&quot;\n 4. 运行函数 four_test2_2&quot;</span>); </span><br><span class="line">   <span class="built_in">printf</span>(<span class="string">&quot;\n 0. 退出&quot;</span>);</span><br><span class="line">   <span class="built_in">printf</span>(<span class="string">&quot;\n***************************\n&quot;</span>);</span><br><span class="line">   <span class="built_in">printf</span>(<span class="string">&quot;\n\n请输入你的选项：&quot;</span>);            <span class="comment">//显示用户操作提示</span></span><br><span class="line">   scanf_s(<span class="string">&quot;%d&quot;</span>,&amp;iSelect);					   <span class="comment">//用户输入操作</span></span><br><span class="line">   <span class="keyword">return</span> iSelect;							   <span class="comment">//返回用户选择</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">( )</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> iChoice;</span><br><span class="line"><span class="keyword">while</span>(<span class="number">1</span>)	</span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">         system(<span class="string">&quot;cls&quot;</span>);	</span><br><span class="line">         iChoice = four_Menu();                  <span class="comment">//获取用户选择</span></span><br><span class="line">	</span><br><span class="line">                <span class="keyword">switch</span>(iChoice)                        <span class="comment">//根据用户选择执行相应程序功能</span></span><br><span class="line">	&#123;</span><br><span class="line">        	<span class="keyword">case</span> <span class="number">1</span>: four_test1_1( ); <span class="keyword">break</span>;</span><br><span class="line">        	<span class="keyword">case</span> <span class="number">2</span>: four_test1_2( ); <span class="keyword">break</span>;</span><br><span class="line">        	<span class="keyword">case</span> <span class="number">3</span>: four_test2_1( );<span class="keyword">break</span>;</span><br><span class="line">       	 <span class="keyword">case</span> <span class="number">4</span>: four_test2_2( );<span class="keyword">break</span>;</span><br><span class="line">       	 <span class="keyword">case</span> <span class="number">0</span>: <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">       	 <span class="keyword">default</span>: <span class="built_in">printf</span>(<span class="string">&quot;\n The select is ERROR\n&quot;</span>); </span><br><span class="line">	&#125;</span><br><span class="line">              system(<span class="string">&quot;pause&quot;</span>); </span><br><span class="line">    &#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">four_test1_1</span><span class="params">(<span class="keyword">void</span>)</span> </span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;\n this is test1_1\n&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">four_test1_2</span><span class="params">(<span class="keyword">void</span>)</span> </span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;\n this is test1_2\n&quot;</span>);</span><br><span class="line">&#125;           </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">four_test2_1</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;\n this is test2_1\n&quot;</span>);</span><br><span class="line">&#125;			   </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">four_test2_2</span><span class="params">(<span class="keyword">void</span>)</span>	</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;\n this is test2_2\n&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="7">
+<li><h4 id="随机数产生："><a href="#随机数产生：" class="headerlink" title="随机数产生："></a>随机数产生：</h4></li>
+</ol>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdlib.h&gt;</span><span class="comment">//所需头文件</span></span></span><br><span class="line">   srand(time(<span class="number">0</span>)) ;<span class="comment">//先设置种子</span></span><br><span class="line">rand();<span class="comment">//然后产生随机数</span></span><br><span class="line">magic = rand(); <span class="comment">//产生[0，32767] 之间的随机数</span></span><br><span class="line">magic = rand()%b;  <span class="comment">//产生[0,b-1] 之间的随机数</span></span><br><span class="line">magic = rand()%b + a; <span class="comment">//产生[a,a+b-1] 之间的随机数</span></span><br><span class="line"><span class="comment">//Tips:Srand是种下随机种子数，你每回种下的种子不一样，用Rand得到的随机数就不一样。为了每回种下一个不一样的种子，所以就选用Time(0)，Time(0)是得到当前时时间值（因为每时每刻时间是不一样的了）。</span></span><br></pre></td></tr></table></figure>
+
+<ol start="8">
+<li>求绝对值：abs()和fabs()</li>
+</ol>
+<p><strong>区别一：用法不同</strong></p>
+<p>1、abs()是对整数取绝对值</p>
+<p>2、fabs()是对浮点数取绝对值</p>
+<p><strong>区别二：函数原型不同</strong></p>
+<p>1、abs的函数原型为：int abs(int x)</p>
+<p>2、fabs的函数原型为：double fabs(double x)</p>
+<p><strong>区别三：头文件不同</strong></p>
+<p>1、abs(): #include &lt;stdlib.h&gt;</p>
+<p>2、fabs(): #include &lt;math.h&gt;</p>
+<hr>
+<ol start="9">
+<li><h4 id="求平方"><a href="#求平方" class="headerlink" title="求平方"></a>求平方</h4><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function">include&lt;math.h&gt;</span></span><br><span class="line"><span class="function"><span class="title">pow</span><span class="params">(a,b)</span><span class="comment">//a^b</span></span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<ol start="10">
+<li>数据类型转换:</li>
+</ol>
+<p>仅仅局限于单纯的赋值语句中，在各类函数指令的括号里（如if，for，pow，甚至是你新定义的函数头里的括号）都不可以这样做，不过你对于一些具有数据意义的数学函数（如pow），你可以在其之前加括号更改数据类型。</p>
+]]></content>
+      <tags>
+        <tag>学习</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Blog图片部署</title>
     <url>/2021/11/03/Blog%E5%9B%BE%E7%89%87%E9%83%A8%E7%BD%B2/</url>
     <content><![CDATA[<h1 id="Blog图片"><a href="#Blog图片" class="headerlink" title="Blog图片"></a>Blog图片</h1><p>Blog的图片可以采用本地并上传☞Github</p>
@@ -41,7 +158,7 @@
 </li>
 <li><p>添加到GITHUB:个人设置settings中添加ssh</p>
 </li>
-<li><p>测试连接 ssh -T <a href="mailto:&#x67;&#x69;&#116;&#64;&#103;&#105;&#x74;&#x68;&#117;&#98;&#46;&#x63;&#x6f;&#x6d;">&#x67;&#x69;&#116;&#64;&#103;&#105;&#x74;&#x68;&#117;&#98;&#46;&#x63;&#x6f;&#x6d;</a></p>
+<li><p>测试连接 ssh -T <a href="mailto:&#x67;&#105;&#116;&#64;&#103;&#x69;&#116;&#104;&#117;&#x62;&#46;&#99;&#x6f;&#109;">&#x67;&#105;&#116;&#64;&#103;&#x69;&#116;&#104;&#117;&#x62;&#46;&#99;&#x6f;&#109;</a></p>
 <hr>
 </li>
 </ul>
@@ -152,6 +269,18 @@
       </tags>
   </entry>
   <entry>
+    <title>Hello World</title>
+    <url>/2021/11/03/Hello-World/</url>
+    <content><![CDATA[<h1 id="Hello-World"><a href="#Hello-World" class="headerlink" title="Hello World"></a>Hello World</h1><ul>
+<li>当你看到这条文章时，我的Blog搭建成功了(期间被我搞炸了无数次)</li>
+<li>Blog采用了github+hexo,主题为butterfly(随便糊了一下，还在搭建中……)</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>搭建成功</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>C语言1A实验</title>
     <url>/2021/11/04/C%E8%AF%AD%E8%A8%801A%E5%AE%9E%E9%AA%8C/</url>
     <content><![CDATA[<h1 id="实验一"><a href="#实验一" class="headerlink" title="实验一"></a>实验一</h1><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> PI 3.141592f</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Myshadow</span><span class="params">(<span class="keyword">void</span>)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Height</span><span class="params">(<span class="keyword">void</span>)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Circle</span><span class="params">(<span class="keyword">void</span>)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">turnnumber</span><span class="params">(<span class="keyword">void</span>)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	Height();</span><br><span class="line">	Circle();</span><br><span class="line">	Myshadow();</span><br><span class="line">	turnnumber();</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Height</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> height;</span><br><span class="line">	<span class="keyword">float</span> kilo;</span><br><span class="line">	<span class="keyword">float</span> out;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;输入你的身高：&quot;</span>);</span><br><span class="line">	scanf_s(<span class="string">&quot;%d&quot;</span>, &amp;height);</span><br><span class="line">	kilo = (height - <span class="number">100</span>) * <span class="number">0.9f</span>;</span><br><span class="line">	out = kilo * <span class="number">2</span>;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;你的标准体重为：%0.1f斤\n&quot;</span>, out);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Circle</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">float</span> r;</span><br><span class="line">	<span class="keyword">float</span> c;</span><br><span class="line">	<span class="keyword">float</span> s;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;输入圆的半径：&quot;</span>);</span><br><span class="line">	scanf_s(<span class="string">&quot;%f&quot;</span>,&amp;r);</span><br><span class="line">	c = <span class="number">2</span> * PI * r;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;园的周长为：%0.1f\n&quot;</span>,c);</span><br><span class="line">	s = PI * r * r;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;园的面积为：%0.1f\n&quot;</span>,s);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Myshadow</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> x, y;</span><br><span class="line">	<span class="keyword">int</span> S;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;输入x，y值：&quot;</span>);</span><br><span class="line">	scanf_s(<span class="string">&quot;%d,%d&quot;</span>, &amp;x, &amp;y);</span><br><span class="line">	S = <span class="number">5000</span> - <span class="number">50</span> * x - <span class="number">50</span> * y;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;我的心理阴影面积：%d\n&quot;</span>,S);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">turnnumber</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> a;</span><br><span class="line">	<span class="keyword">int</span> b;</span><br><span class="line">	<span class="keyword">int</span> c;</span><br><span class="line">	<span class="keyword">int</span> num;</span><br><span class="line">	<span class="keyword">int</span> turnnum;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;输入一个三位整数；&quot;</span>);</span><br><span class="line">	scanf_s(<span class="string">&quot;%d&quot;</span>,&amp;num);</span><br><span class="line">	a = num % <span class="number">10</span>;</span><br><span class="line">	b = num % <span class="number">100</span> / <span class="number">10</span>;</span><br><span class="line">	c = num / <span class="number">100</span>;</span><br><span class="line">	turnnum = a * <span class="number">100</span> + b * <span class="number">10</span> + c;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;逆序数为：%d\n&quot;</span>,turnnum);</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -165,131 +294,6 @@
 ]]></content>
       <tags>
         <tag>实验</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>C语言学习</title>
-    <url>/2021/11/03/C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0/</url>
-    <content><![CDATA[<h1 id="C语言学习"><a href="#C语言学习" class="headerlink" title="C语言学习"></a>C语言学习</h1><ol>
-<li><h4 id="除法："><a href="#除法：" class="headerlink" title="除法："></a>除法：</h4><p>整数相除为整数(无小数部分)，小数相除为小数</p>
-</li>
-<li><h4 id="诸如a-b-a-b："><a href="#诸如a-b-a-b：" class="headerlink" title="诸如a*=b a+=b："></a>诸如a*=b a+=b：</h4><p>从右向左运输，并对每次计算结果的字母赋值</p>
-</li>
-<li><h4 id="scanf和scanf-s"><a href="#scanf和scanf-s" class="headerlink" title="scanf和scanf_s"></a>scanf和scanf_s</h4><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="comment">//scanf_s读取char类型时，第三个参数要加上最大获取多少个数据.</span></span><br><span class="line">如scanf_s(<span class="string">&quot;%c&quot;</span>,c1,<span class="number">1</span>);</span><br></pre></td></tr></table></figure></li>
-<li><h4 id="常用的输出控制符主要有以下几个："><a href="#常用的输出控制符主要有以下几个：" class="headerlink" title="常用的输出控制符主要有以下几个："></a>常用的输出控制符主要有以下几个：</h4><table>
-<thead>
-<tr>
-<th>控制符</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>%d</td>
-<td>按十进制整型数据的实际长度输出。</td>
-</tr>
-<tr>
-<td>%ld</td>
-<td>输出长整型数据。</td>
-</tr>
-<tr>
-<td>%md</td>
-<td>m 为指定的输出字段的宽度。如果数据的位数小于 m，则左端补以空格，若大于 m，则按实际位数输出。</td>
-</tr>
-<tr>
-<td>%0md</td>
-<td>m 为指定的输出字段的宽度。如果数据的位数小于 m，则左端补以0，若大于 m，则按实际位数输出。</td>
-</tr>
-<tr>
-<td>%u</td>
-<td>输出无符号整型（unsigned）。输出无符号整型时也可以用 %d，这时是将无符号转换成有符号数，然后输出。但编程的时候最好不要这么写，因为这样要进行一次转换，使 CPU 多做一次无用功。</td>
-</tr>
-<tr>
-<td>%c</td>
-<td>用来输出一个字符。</td>
-</tr>
-<tr>
-<td>%f</td>
-<td>用来输出实数，包括单精度和双精度，以小数形式输出。不指定字段宽度，由系统自动指定，整数部分全部输出，小数部分输出 6 位，超过 6 位的四舍五入。</td>
-</tr>
-<tr>
-<td>%.mf</td>
-<td>输出实数时小数点后保留 m 位，注意 m 前面有个点。</td>
-</tr>
-<tr>
-<td>%o</td>
-<td>以八进制整数形式输出，这个就用得很少了，了解一下就行了。</td>
-</tr>
-<tr>
-<td>%s</td>
-<td>用来输出字符串。用 %s 输出字符串同前面直接输出字符串是一样的。但是此时要先定义字符数组或字符指针存储或指向字符串，这个稍后再讲。可打印define后“”的字符串，如#define STR1 “computer”</td>
-</tr>
-<tr>
-<td>%m.ns</td>
-<td>m表示占几格，.n表示保留几位，如输出english,%5.3表示  eng</td>
-</tr>
-<tr>
-<td>%x（或 %X 或 %#x 或 %#X）</td>
-<td>以十六进制形式输出整数，这个很重要。</td>
-</tr>
-<tr>
-<td>%e （%E）</td>
-<td>以指数形式输出，保留6位小数</td>
-</tr>
-</tbody></table>
-</li>
-<li><h4 id="函数："><a href="#函数：" class="headerlink" title="函数："></a>函数：</h4><ul>
-<li><p> 返回值类型：用于限定函数返回值类型，当返回类型为void时，return语句可以省略。</p>
-</li>
-<li><p> 函数名：表示函数的名称。</p>
-</li>
-<li><p> 参数类型：用于限定调用函数时传入函数中的数据类型。</p>
-</li>
-<li><p> 参数：用于接收传入函数的数据</p>
-</li>
-<li><p> return关键字：用于结束函数，将函数的返回值返回函数调用处。</p>
-</li>
-</ul>
-</li>
-<li><h4 id="菜单实现："><a href="#菜单实现：" class="headerlink" title="菜单实现："></a>菜单实现：</h4></li>
-</ol>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">制作一个菜单，使用getchar（）函数。</span><br><span class="line">如果只用一个getchar（），输入的回车会影响到下一个getchar（）；</span><br><span class="line">如果用连续两个getchar（）函数，第二个可以把回车读取掉</span><br><span class="line">    <span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line">    <span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;windows.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">four_test1_1</span><span class="params">( )</span></span>;                <span class="comment">//第一题第一小题 函数声明</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">four_test1_2</span><span class="params">( )</span></span>;                <span class="comment">//第一题第二小题 函数声明</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">four_test2_1</span><span class="params">( )</span></span>;			    <span class="comment">//第二题第一小题 函数声明</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">four_test2_2</span><span class="params">( )</span></span>;			    <span class="comment">//第二题第二小题 函数声明</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">four_Menu</span><span class="params">(<span class="keyword">void</span>)</span>            <span class="comment">//显示菜单并返回选择的功能编号</span></span></span><br><span class="line"><span class="function"></span>&#123;  </span><br><span class="line">	<span class="keyword">int</span> iSelect;</span><br><span class="line">   </span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;\n***************************\n&quot;</span>);  <span class="comment">//显示程序菜单选项</span></span><br><span class="line">   	<span class="built_in">printf</span>(<span class="string">&quot;\n 1. 运行函数 four_test1_1&quot;</span>);</span><br><span class="line">   <span class="built_in">printf</span>(<span class="string">&quot;\n 2. 运行函数 four_test1_2&quot;</span>);</span><br><span class="line">   <span class="built_in">printf</span>(<span class="string">&quot;\n 3. 运行函数 four_test2_1&quot;</span>);</span><br><span class="line">   <span class="built_in">printf</span>(<span class="string">&quot;\n 4. 运行函数 four_test2_2&quot;</span>); </span><br><span class="line">   <span class="built_in">printf</span>(<span class="string">&quot;\n 0. 退出&quot;</span>);</span><br><span class="line">   <span class="built_in">printf</span>(<span class="string">&quot;\n***************************\n&quot;</span>);</span><br><span class="line">   <span class="built_in">printf</span>(<span class="string">&quot;\n\n请输入你的选项：&quot;</span>);            <span class="comment">//显示用户操作提示</span></span><br><span class="line">   scanf_s(<span class="string">&quot;%d&quot;</span>,&amp;iSelect);					   <span class="comment">//用户输入操作</span></span><br><span class="line">   <span class="keyword">return</span> iSelect;							   <span class="comment">//返回用户选择</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">( )</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> iChoice;</span><br><span class="line"><span class="keyword">while</span>(<span class="number">1</span>)	</span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">         system(<span class="string">&quot;cls&quot;</span>);	</span><br><span class="line">         iChoice = four_Menu();                  <span class="comment">//获取用户选择</span></span><br><span class="line">	</span><br><span class="line">                <span class="keyword">switch</span>(iChoice)                        <span class="comment">//根据用户选择执行相应程序功能</span></span><br><span class="line">	&#123;</span><br><span class="line">        	<span class="keyword">case</span> <span class="number">1</span>: four_test1_1( ); <span class="keyword">break</span>;</span><br><span class="line">        	<span class="keyword">case</span> <span class="number">2</span>: four_test1_2( ); <span class="keyword">break</span>;</span><br><span class="line">        	<span class="keyword">case</span> <span class="number">3</span>: four_test2_1( );<span class="keyword">break</span>;</span><br><span class="line">       	 <span class="keyword">case</span> <span class="number">4</span>: four_test2_2( );<span class="keyword">break</span>;</span><br><span class="line">       	 <span class="keyword">case</span> <span class="number">0</span>: <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">       	 <span class="keyword">default</span>: <span class="built_in">printf</span>(<span class="string">&quot;\n The select is ERROR\n&quot;</span>); </span><br><span class="line">	&#125;</span><br><span class="line">              system(<span class="string">&quot;pause&quot;</span>); </span><br><span class="line">    &#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">four_test1_1</span><span class="params">(<span class="keyword">void</span>)</span> </span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;\n this is test1_1\n&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">four_test1_2</span><span class="params">(<span class="keyword">void</span>)</span> </span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;\n this is test1_2\n&quot;</span>);</span><br><span class="line">&#125;           </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">four_test2_1</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;\n this is test2_1\n&quot;</span>);</span><br><span class="line">&#125;			   </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">four_test2_2</span><span class="params">(<span class="keyword">void</span>)</span>	</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;\n this is test2_2\n&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ol start="7">
-<li><h4 id="随机数产生："><a href="#随机数产生：" class="headerlink" title="随机数产生："></a>随机数产生：</h4></li>
-</ol>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdlib.h&gt;</span><span class="comment">//所需头文件</span></span></span><br><span class="line">   srand(time(<span class="number">0</span>)) ;<span class="comment">//先设置种子</span></span><br><span class="line">rand();<span class="comment">//然后产生随机数</span></span><br><span class="line">magic = rand(); <span class="comment">//产生[0，32767] 之间的随机数</span></span><br><span class="line">magic = rand()%b;  <span class="comment">//产生[0,b-1] 之间的随机数</span></span><br><span class="line">magic = rand()%b + a; <span class="comment">//产生[a,a+b-1] 之间的随机数</span></span><br><span class="line"><span class="comment">//Tips:Srand是种下随机种子数，你每回种下的种子不一样，用Rand得到的随机数就不一样。为了每回种下一个不一样的种子，所以就选用Time(0)，Time(0)是得到当前时时间值（因为每时每刻时间是不一样的了）。</span></span><br></pre></td></tr></table></figure>
-
-<ol start="8">
-<li>求绝对值：abs()和fabs()</li>
-</ol>
-<p><strong>区别一：用法不同</strong></p>
-<p>1、abs()是对整数取绝对值</p>
-<p>2、fabs()是对浮点数取绝对值</p>
-<p><strong>区别二：函数原型不同</strong></p>
-<p>1、abs的函数原型为：int abs(int x)</p>
-<p>2、fabs的函数原型为：double fabs(double x)</p>
-<p><strong>区别三：头文件不同</strong></p>
-<p>1、abs(): #include &lt;stdlib.h&gt;</p>
-<p>2、fabs(): #include &lt;math.h&gt;</p>
-<hr>
-<ol start="9">
-<li><h4 id="求平方"><a href="#求平方" class="headerlink" title="求平方"></a>求平方</h4><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function">include&lt;math.h&gt;</span></span><br><span class="line"><span class="function"><span class="title">pow</span><span class="params">(a,b)</span><span class="comment">//a^b</span></span></span><br></pre></td></tr></table></figure></li>
-</ol>
-]]></content>
-      <tags>
-        <tag>学习</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/2021/11/03/Hello-World/</url>
-    <content><![CDATA[<h1 id="Hello-World"><a href="#Hello-World" class="headerlink" title="Hello World"></a>Hello World</h1><ul>
-<li>当你看到这条文章时，我的Blog搭建成功了(期间被我搞炸了无数次)</li>
-<li>Blog采用了github+hexo,主题为butterfly(随便糊了一下，还在搭建中……)</li>
-</ul>
-]]></content>
-      <tags>
-        <tag>搭建成功</tag>
       </tags>
   </entry>
   <entry>
