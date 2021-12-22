@@ -1,6 +1,157 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Blog图片部署</title>
+    <url>/2021/11/03/Blog%E5%9B%BE%E7%89%87%E9%83%A8%E7%BD%B2/</url>
+    <content><![CDATA[<h1 id="Blog图片"><a href="#Blog图片" class="headerlink" title="Blog图片"></a>Blog图片</h1><p>Blog的图片可以采用本地并上传☞Github</p>
+<p>但是鉴于国内网络原因，科学上网方式又繁琐，图片难以显示</p>
+<p>因此下面介绍让Blog显示图片的方法：</p>
+<h2 id="方法："><a href="#方法：" class="headerlink" title="方法："></a>方法：</h2><p><strong>使用公益图床上传图片：</strong></p>
+<ol>
+<li><p> <a href="https://sm.ms/">SM.MS </a>      <strong>强烈推荐！！无需注册</strong></p>
+</li>
+<li><p> <a href="https://imgtu.com/">路过图床</a>   <strong>似乎会删图，不是特别推荐</strong></p>
+</li>
+</ol>
+<p>图片上传完成后，会得到<strong>URL(网址)</strong></p>
+<p>将网址复制到 config 或 文章上方(cover:)之后</p>
+<p>博客即可显示图片</p>
+<h2 id="Tips"><a href="#Tips" class="headerlink" title="Tips:"></a>Tips:</h2><p><strong>有时图片过大，网页加载过慢，可以采取下列压缩方法</strong></p>
+<ol>
+<li>下载图压软件 <a href="https://tuya.xinxiao.tech/">图压 - 简单易用的图片压缩软件 (xinxiao.tech)</a></li>
+<li> 在线压缩 <a href="https://jisuimg.com/">极速img - 图片无损压缩)</a> <strong>(不推荐，需注册，后续需会员)</strong></li>
+</ol>
+]]></content>
+      <tags>
+        <tag>科技</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Blog搭建</title>
+    <url>/2021/11/03/Blog%E6%90%AD%E5%BB%BA/</url>
+    <content><![CDATA[<h1 id="Blog搭建：GitHub-Hexo"><a href="#Blog搭建：GitHub-Hexo" class="headerlink" title="Blog搭建：GitHub+Hexo"></a>Blog搭建：GitHub+Hexo</h1><p>注明：本文资料借鉴了<a href="https://zhuanlan.zhihu.com/p/102592286">从零开始搭建个人博客（超详细） - 知乎 (zhihu.com)</a></p>
+<h3 id="1-安装Git-Node-js-Hexo"><a href="#1-安装Git-Node-js-Hexo" class="headerlink" title="1.安装Git+Node.js+Hexo"></a>1.安装Git+Node.js+Hexo</h3><hr>
+<h3 id="2-利用GIT配置SSH密钥并添加到GITHUB"><a href="#2-利用GIT配置SSH密钥并添加到GITHUB" class="headerlink" title="2.利用GIT配置SSH密钥并添加到GITHUB"></a>2.利用GIT配置SSH密钥并添加到GITHUB</h3><p>(<strong>Tips:GIT中复制粘贴为Ctrl+Insert和Shift+Insert</strong>)</p>
+<ul>
+<li><p>生成密钥：ssh-keygen -t rsa -C “邮箱”</p>
+</li>
+<li><p>密钥位置：C:\Users\43536\ .ssh</p>
+</li>
+<li><p>删除密钥方法：删除.ssh中所有文件</p>
+</li>
+<li><p>添加到GITHUB:个人设置settings中添加ssh</p>
+</li>
+<li><p>测试连接 ssh -T <a href="mailto:&#x67;&#105;&#116;&#64;&#103;&#x69;&#116;&#x68;&#117;&#98;&#46;&#x63;&#x6f;&#x6d;">&#x67;&#105;&#116;&#64;&#103;&#x69;&#116;&#x68;&#117;&#98;&#46;&#x63;&#x6f;&#x6d;</a></p>
+<hr>
+</li>
+</ul>
+<h3 id="3-GITHUB仓库连接"><a href="#3-GITHUB仓库连接" class="headerlink" title="3.GITHUB仓库连接"></a>3.GITHUB仓库连接</h3><h4 id="第一种方法详细步骤："><a href="#第一种方法详细步骤：" class="headerlink" title="第一种方法详细步骤："></a>第一种方法详细步骤：</h4><p>clone 到本地</p>
+<p>输入</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">git clone git@github.com:NONAME00X/Blog_1.git <span class="comment">//在github库code中找到</span></span><br></pre></td></tr></table></figure>
+
+<p>输入</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">git status <span class="comment">//命令查看仓库状态</span></span><br></pre></td></tr></table></figure>
+
+<p>用 git add 命令将文件添加到了「临时缓冲区」，再用 git commit -m “提交信息” 将其提交到本地仓库</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">git add 文件名.文件后缀</span><br><span class="line">git commit -m <span class="string">&quot;commit 文件名 file&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>如果你是第一次提交的话，会让你输入用户名和邮箱：</p>
+<ol>
+<li><h5 id="方法一："><a href="#方法一：" class="headerlink" title="方法一："></a>方法一：</h5></li>
+<li><p>打开项目所在目录，找到隐藏的.git文件夹。注意这个文件夹是隐藏的，显示隐藏出来就行。</p>
+</li>
+<li><p>打开文件夹里的config文件，推荐用nodepad++打开。</p>
+</li>
+<li><p>添加这三行到文件：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[user]</span><br><span class="line"> </span><br><span class="line">name = NONAME00X</span><br><span class="line"> </span><br><span class="line">email = 435362761@qq.com</span><br></pre></td></tr></table></figure></li>
+<li><h5 id="方法二："><a href="#方法二：" class="headerlink" title="方法二："></a>方法二：</h5></li>
+</ol>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="comment">//你只要再加两行代码就行：</span></span><br><span class="line">git config --global user.name<span class="string">&quot;NONAME00X&quot;</span></span><br><span class="line">git config --global user.email<span class="string">&quot;435362761@qq.com&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>完成后输入 git log 命令查看仓库提交日志</p>
+<p>再输入 git status 查看一下仓库状态</p>
+<p>现在输入 git push origin main 命令，将本地仓库提交到远程仓库，origin是远程主机的名字</p>
+<h4 id="第二种方法详细步骤："><a href="#第二种方法详细步骤：" class="headerlink" title="第二种方法详细步骤："></a>第二种方法详细步骤：</h4><p>首先，我们建立一个本地仓库 demo，使用 git init 命令初始化这个仓库，如下图:</p>
+<p><img src="https://pic1.zhimg.com/80/v2-d159b1c54326f23f7b810d4dca27d988_720w.jpg" alt="img"></p>
+<p><img src="https://pic2.zhimg.com/80/v2-86ac46ad9ef847b17056d80cdd0cfb39_720w.jpg" alt="img"></p>
+<p>输入 git remote add origin <a href="https://link.zhihu.com/?target=https://github.com/fengye97/text.git">https://github.com/fengye97/text.git</a> 命令，关联远程仓库，接着输入 git pull origin main 命令，同步远程仓库和本地仓库，如下图：</p>
+<p><img src="https://pic4.zhimg.com/80/v2-5035f6cbeabffc1a79f0b7ad75aff277_720w.jpg" alt="img"></p>
+<p>回到本地仓库，发现我们已经把远程仓库的内容同步到了本地仓库：</p>
+<p><img src="https://pic2.zhimg.com/80/v2-58bf4f785d0a05fd0d7006998b242425_720w.jpg" alt="img"></p>
+<p>接下来的步骤就与第一种方法一样（可以参考上面，已经写得很详细了），先输入 git add 和 git commit 命令，将要提交的文件添加并提交到 demo 仓库；然后再输入 git push origin main 命令，将本地仓库修改（或者添加）的内容提交到远程仓库就完成啦！！！</p>
+<h3 id="4-安装Hexo"><a href="#4-安装Hexo" class="headerlink" title="4. 安装Hexo"></a>4. 安装Hexo</h3><p>Hexo就是我们的个人博客网站的框架，在安装之前，我们要先在GitHub上创立一个仓库，如下图：</p>
+<p><img src="https://pic1.zhimg.com/80/v2-010e684d021680e94f0142adc3e014b8_720w.jpg" alt="img"></p>
+<p><img src="https://pic2.zhimg.com/80/v2-d6fa95cce4e455153187135c8ee12359_720w.jpg" alt="img"></p>
+<p>点击 settings 设置：</p>
+<p><img src="https://pic1.zhimg.com/80/v2-39e664f7edf18ee56795a8c96f669424_720w.jpg" alt="img"></p>
+<p>滑到页面底端，出现如下图所示就说明已经成功了：</p>
+<p><img src="https://pic1.zhimg.com/80/v2-6a000b836ae32c3d118c1fdeb4696f1c_720w.jpg" alt="img"></p>
+<p>接下来就是安装Hexo，首先在D盘建立一个文件夹 Blog，点开 Blog 文件夹，鼠标右键打开 Git Bush Here，输入npm命令安装Hexo：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://pic2.zhimg.com/80/v2-7b36dbcaf294d16ebcbf46888ff4ff5d_720w.jpg" alt="img"></p>
+<p>安装完成后，输入 hexo init 命令初始化博客：</p>
+<p><img src="https://pic1.zhimg.com/80/v2-e58d83d78710849cdc32321f122550e8_720w.jpg" alt="img"></p>
+<p>然后输入 hexo g 静态部署：</p>
+<p><img src="https://pic3.zhimg.com/80/v2-fdc87aa8600fdbbecdc0c9bc2c141412_720w.jpg" alt="img"></p>
+<p>这时网页已经部署完成，输入 hexo s 命令可以查看：</p>
+<p><img src="https://pic4.zhimg.com/80/v2-11a0b4917c962bab07a48f7a04160e8b_720w.png" alt="img"></p>
+<p>浏览器输入 <a href="https://link.zhihu.com/?target=http://baixin.io/2015/08/HEXO%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/%E5%B0%B1%E5%8F%AF%E4%BB%A5%E7%9C%8B%E5%88%B0%E6%9C%80%E5%8E%9F%E5%A7%8B%E7%9A%84%E6%95%88%E6%9E%9C%E4%BA%86">http://localhost:4000</a> 就可以打开新部署的网页：</p>
+<p><img src="https://pic3.zhimg.com/80/v2-5a8d3a94b1eb5e4e79f2e733ddaed2aa_720w.jpg" alt="img"></p>
+<p>看完之后 ctrl +c 停止运行服务器。</p>
+<h4 id="将Hexo部署到GitHub"><a href="#将Hexo部署到GitHub" class="headerlink" title="将Hexo部署到GitHub"></a>将Hexo部署到GitHub</h4><p>现在回到我们的 Blog 文件夹，用笔记本打开 _config.yml 文件，如下图：</p>
+<p><img src="https://pic3.zhimg.com/80/v2-b60225e9260cd78e1142e81c133b567a_720w.jpg" alt="img"></p>
+<p>下滑到文件底部，填上如下内容：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repository: https://github.com/NONAME00X/NONAME00X.github.io.git  #你的仓库地址</span><br><span class="line">  branch: main</span><br></pre></td></tr></table></figure>
+
+<p>注意空格：</p>
+<p><img src="https://pic3.zhimg.com/80/v2-7f9e09b1827fd9202088cc9d9b19880e_720w.png" alt="img"></p>
+<p>你的仓库地址就是下图这个：</p>
+<p><img src="https://pic3.zhimg.com/80/v2-5014abdff592085ca394335730020fae_720w.jpg" alt="img"></p>
+<p>然后回到 Blog 文件夹中，打开 Git Bash，安装Git部署插件，输入命令：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://pic4.zhimg.com/80/v2-a5172536904c8eaa602debc6e54c877b_720w.jpg" alt="img"></p>
+<p>然后分别输入以下三条命令：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo clean   #清除缓存文件 db.json 和已生成的静态文件 public</span><br><span class="line">hexo g       #生成网站静态文件到默认设置的 public 文件夹(hexo generate 的缩写)</span><br><span class="line">hexo d       #自动生成网站静态文件，并部署到设定的仓库(hexo deploy 的缩写)</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://pic1.zhimg.com/80/v2-54e0b045f1d46c70e740ec83a3552fe0_720w.jpg" alt="img"></p>
+<p>完成以后，打开浏览器，输入 <a href="https://link.zhihu.com/?target=https://fengye97.github.io/">https://xxx.github.io</a> 就可以打开你的网页了：</p>
+<p><img src="https://pic2.zhimg.com/80/v2-aa3a0b56dbcadf942397b8ea224b78b9_720w.jpg" alt="img"></p>
+<p>现在虽然可以访问我们的网站，但是网址是GitHub提供的：<a href="https://link.zhihu.com/?target=http://xxxx.github.io">http://xxxx.github.io</a> 而我们想使用我们自己的个性化域名，这就需要绑定我们自己的域名。下一篇介绍解析域名和绑定域名。</p>
+<h3 id="5-更换主题"><a href="#5-更换主题" class="headerlink" title="5. 更换主题"></a>5. 更换主题</h3><p>当前用得最多的是next主题，那为什么用得多呢？当然是符合大多数人的审美。我使用的是next(v7.7.1)，下载地址：<a href="https://link.zhihu.com/?target=https://github.com/theme-next/hexo-theme-next">theme-next/hexo-theme-next</a></p>
+<p>打开博客根目录Blog文件夹，右键Git Bash，输入如下代码将next主题下载到目录Blog/themes：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git clone https://github.com/theme-next/hexo-theme-next themes/next   最后两个themes/nextj</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://pic3.zhimg.com/80/v2-4d4e54afc1550a4e6af02fe489c696ce_720w.jpg" alt="img"></p>
+<p><img src="https://pic2.zhimg.com/80/v2-021a9180a69ad0e17e5da81289b19a65_720w.jpg" alt="img"></p>
+<p>打开根目录下的_config.yml(称为<strong>站点配置文件</strong>)，修改主题（<strong>注意冒号后都要有空格</strong>）：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># Site</span><br><span class="line">title: 枫叶苑  #标题</span><br><span class="line">subtitle: &#x27;&#x27;</span><br><span class="line">description: 选择有时候比努力更重要     #简介或者格言</span><br><span class="line">keywords:</span><br><span class="line">author: 枫叶     #作者</span><br><span class="line">language: zh-CN     #主题语言</span><br><span class="line">timezone: Asia/Shanghai    #中国的时区</span><br><span class="line"></span><br><span class="line"># Extensions</span><br><span class="line">## Plugins: https://hexo.io/plugins/</span><br><span class="line">## Themes: https://hexo.io/themes/</span><br><span class="line">theme: next   #主题改为next</span><br></pre></td></tr></table></figure>
+
+<p>主题语言主要是看你的themes/next/language中的简体中文是 zh-CN 还是 zh-Hans：</p>
+<p><img src="https://pic4.zhimg.com/80/v2-b0fb2299bceee4ab42f867344393ae9f_720w.jpg" alt="img"></p>
+<p>next主题有四种，如下图依次为Muse、Mist、Pisces、Gemini（反正我没看出来后两个有什么区别）：</p>
+<p><img src="https://pic4.zhimg.com/80/v2-80b50d2c94624c7da33a018e269325db_720w.jpg" alt="img"></p>
+<p><img src="https://pic1.zhimg.com/80/v2-b9137d53a1626f4ae1be79b181bb3f88_720w.jpg" alt="img"></p>
+<p><img src="https://pic1.zhimg.com/80/v2-3f000eb2cdf5bff60da3b68ff660e470_720w.jpg" alt="img"></p>
+<p><img src="https://pic2.zhimg.com/80/v2-6e7209c21235563b39db4c6d6359e0dd_720w.jpg" alt="img"></p>
+<p>我选的是Gemini，打开目录Blog/themes/next/下的_config.yml（称为<strong>主题配置文件</strong>），只要将你选的主题前的#删除就行了：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># Schemes</span><br><span class="line">#scheme: Muse</span><br><span class="line">#scheme: Mist</span><br><span class="line">#scheme: Pisces</span><br><span class="line">scheme: Gemini    #这是我选的主题</span><br></pre></td></tr></table></figure>
+
+<p>回到根目录打开Git Bash，输入如下三条命令：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+
+<p>完成后打开你的博客：</p>
+<p><img src="https://pic3.zhimg.com/80/v2-f7fb0d06f6c256a445d3053a09aee726_720w.jpg" alt="img"></p>
+<p>问题：改主题为Gemini时，hexo clean，hexo g，hexo d 三个命令完成后主题未改变；</p>
+<p>解决办法：删除next下的.git文件夹（这好像是个隐藏文件夹），再上传时修改成功。</p>
+<p>附：后来我又发现用 hexo s 命令查看网页部署时是成功的，但是 hexo d 部署到GitHub上就不行，后来等一会就行了，可能是有延迟。</p>
+]]></content>
+      <tags>
+        <tag>科技</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>C语言学习</title>
     <url>/2021/11/03/C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0/</url>
     <content><![CDATA[<h1 id="C语言学习"><a href="#C语言学习" class="headerlink" title="C语言学习"></a>C语言学习</h1><ol>
@@ -112,172 +263,13 @@
 <li>数据类型转换:</li>
 </ol>
 <p>仅仅局限于单纯的赋值语句中，在各类函数指令的括号里（如if，for，pow，甚至是你新定义的函数头里的括号）都不可以这样做，不过你对于一些具有数据意义的数学函数（如pow），你可以在其之前加括号更改数据类型。</p>
+<ol start="11">
+<li>case范围:</li>
+</ol>
+<p>在支持gnu c扩展库的编译器（如pta考试网，vscode）中，case可以带取值范围</p>
 ]]></content>
       <tags>
         <tag>学习</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Blog图片部署</title>
-    <url>/2021/11/03/Blog%E5%9B%BE%E7%89%87%E9%83%A8%E7%BD%B2/</url>
-    <content><![CDATA[<h1 id="Blog图片"><a href="#Blog图片" class="headerlink" title="Blog图片"></a>Blog图片</h1><p>Blog的图片可以采用本地并上传☞Github</p>
-<p>但是鉴于国内网络原因，科学上网方式又繁琐，图片难以显示</p>
-<p>因此下面介绍让Blog显示图片的方法：</p>
-<h2 id="方法："><a href="#方法：" class="headerlink" title="方法："></a>方法：</h2><p><strong>使用公益图床上传图片：</strong></p>
-<ol>
-<li><p> <a href="https://sm.ms/">SM.MS </a>      <strong>强烈推荐！！无需注册</strong></p>
-</li>
-<li><p> <a href="https://imgtu.com/">路过图床</a>   <strong>似乎会删图，不是特别推荐</strong></p>
-</li>
-</ol>
-<p>图片上传完成后，会得到<strong>URL(网址)</strong></p>
-<p>将网址复制到 config 或 文章上方(cover:)之后</p>
-<p>博客即可显示图片</p>
-<h2 id="Tips"><a href="#Tips" class="headerlink" title="Tips:"></a>Tips:</h2><p><strong>有时图片过大，网页加载过慢，可以采取下列压缩方法</strong></p>
-<ol>
-<li>下载图压软件 <a href="https://tuya.xinxiao.tech/">图压 - 简单易用的图片压缩软件 (xinxiao.tech)</a></li>
-<li> 在线压缩 <a href="https://jisuimg.com/">极速img - 图片无损压缩)</a> <strong>(不推荐，需注册，后续需会员)</strong></li>
-</ol>
-]]></content>
-      <tags>
-        <tag>科技</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Blog搭建</title>
-    <url>/2021/11/03/Blog%E6%90%AD%E5%BB%BA/</url>
-    <content><![CDATA[<h1 id="Blog搭建：GitHub-Hexo"><a href="#Blog搭建：GitHub-Hexo" class="headerlink" title="Blog搭建：GitHub+Hexo"></a>Blog搭建：GitHub+Hexo</h1><p>注明：本文资料借鉴了<a href="https://zhuanlan.zhihu.com/p/102592286">从零开始搭建个人博客（超详细） - 知乎 (zhihu.com)</a></p>
-<h3 id="1-安装Git-Node-js-Hexo"><a href="#1-安装Git-Node-js-Hexo" class="headerlink" title="1.安装Git+Node.js+Hexo"></a>1.安装Git+Node.js+Hexo</h3><hr>
-<h3 id="2-利用GIT配置SSH密钥并添加到GITHUB"><a href="#2-利用GIT配置SSH密钥并添加到GITHUB" class="headerlink" title="2.利用GIT配置SSH密钥并添加到GITHUB"></a>2.利用GIT配置SSH密钥并添加到GITHUB</h3><p>(<strong>Tips:GIT中复制粘贴为Ctrl+Insert和Shift+Insert</strong>)</p>
-<ul>
-<li><p>生成密钥：ssh-keygen -t rsa -C “邮箱”</p>
-</li>
-<li><p>密钥位置：C:\Users\43536\ .ssh</p>
-</li>
-<li><p>删除密钥方法：删除.ssh中所有文件</p>
-</li>
-<li><p>添加到GITHUB:个人设置settings中添加ssh</p>
-</li>
-<li><p>测试连接 ssh -T <a href="mailto:&#x67;&#105;&#116;&#64;&#103;&#x69;&#116;&#104;&#117;&#x62;&#46;&#99;&#x6f;&#109;">&#x67;&#105;&#116;&#64;&#103;&#x69;&#116;&#104;&#117;&#x62;&#46;&#99;&#x6f;&#109;</a></p>
-<hr>
-</li>
-</ul>
-<h3 id="3-GITHUB仓库连接"><a href="#3-GITHUB仓库连接" class="headerlink" title="3.GITHUB仓库连接"></a>3.GITHUB仓库连接</h3><h4 id="第一种方法详细步骤："><a href="#第一种方法详细步骤：" class="headerlink" title="第一种方法详细步骤："></a>第一种方法详细步骤：</h4><p>clone 到本地</p>
-<p>输入</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">git clone git@github.com:NONAME00X/Blog_1.git <span class="comment">//在github库code中找到</span></span><br></pre></td></tr></table></figure>
-
-<p>输入</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">git status <span class="comment">//命令查看仓库状态</span></span><br></pre></td></tr></table></figure>
-
-<p>用 git add 命令将文件添加到了「临时缓冲区」，再用 git commit -m “提交信息” 将其提交到本地仓库</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">git add 文件名.文件后缀</span><br><span class="line">git commit -m <span class="string">&quot;commit 文件名 file&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>如果你是第一次提交的话，会让你输入用户名和邮箱：</p>
-<ol>
-<li><h5 id="方法一："><a href="#方法一：" class="headerlink" title="方法一："></a>方法一：</h5></li>
-<li><p>打开项目所在目录，找到隐藏的.git文件夹。注意这个文件夹是隐藏的，显示隐藏出来就行。</p>
-</li>
-<li><p>打开文件夹里的config文件，推荐用nodepad++打开。</p>
-</li>
-<li><p>添加这三行到文件：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[user]</span><br><span class="line"> </span><br><span class="line">name = NONAME00X</span><br><span class="line"> </span><br><span class="line">email = 435362761@qq.com</span><br></pre></td></tr></table></figure></li>
-<li><h5 id="方法二："><a href="#方法二：" class="headerlink" title="方法二："></a>方法二：</h5></li>
-</ol>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="comment">//你只要再加两行代码就行：</span></span><br><span class="line">git config --global user.name<span class="string">&quot;NONAME00X&quot;</span></span><br><span class="line">git config --global user.email<span class="string">&quot;435362761@qq.com&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>完成后输入 git log 命令查看仓库提交日志</p>
-<p>再输入 git status 查看一下仓库状态</p>
-<p>现在输入 git push origin main 命令，将本地仓库提交到远程仓库，origin是远程主机的名字</p>
-<h4 id="第二种方法详细步骤："><a href="#第二种方法详细步骤：" class="headerlink" title="第二种方法详细步骤："></a>第二种方法详细步骤：</h4><p>首先，我们建立一个本地仓库 demo，使用 git init 命令初始化这个仓库，如下图:</p>
-<p><img src="https://pic1.zhimg.com/80/v2-d159b1c54326f23f7b810d4dca27d988_720w.jpg" alt="img"></p>
-<p><img src="https://pic2.zhimg.com/80/v2-86ac46ad9ef847b17056d80cdd0cfb39_720w.jpg" alt="img"></p>
-<p>输入 git remote add origin <a href="https://link.zhihu.com/?target=https://github.com/fengye97/text.git">https://github.com/fengye97/text.git</a> 命令，关联远程仓库，接着输入 git pull origin main 命令，同步远程仓库和本地仓库，如下图：</p>
-<p><img src="https://pic4.zhimg.com/80/v2-5035f6cbeabffc1a79f0b7ad75aff277_720w.jpg" alt="img"></p>
-<p>回到本地仓库，发现我们已经把远程仓库的内容同步到了本地仓库：</p>
-<p><img src="https://pic2.zhimg.com/80/v2-58bf4f785d0a05fd0d7006998b242425_720w.jpg" alt="img"></p>
-<p>接下来的步骤就与第一种方法一样（可以参考上面，已经写得很详细了），先输入 git add 和 git commit 命令，将要提交的文件添加并提交到 demo 仓库；然后再输入 git push origin main 命令，将本地仓库修改（或者添加）的内容提交到远程仓库就完成啦！！！</p>
-<h3 id="4-安装Hexo"><a href="#4-安装Hexo" class="headerlink" title="4. 安装Hexo"></a>4. 安装Hexo</h3><p>Hexo就是我们的个人博客网站的框架，在安装之前，我们要先在GitHub上创立一个仓库，如下图：</p>
-<p><img src="https://pic1.zhimg.com/80/v2-010e684d021680e94f0142adc3e014b8_720w.jpg" alt="img"></p>
-<p><img src="https://pic2.zhimg.com/80/v2-d6fa95cce4e455153187135c8ee12359_720w.jpg" alt="img"></p>
-<p>点击 settings 设置：</p>
-<p><img src="https://pic1.zhimg.com/80/v2-39e664f7edf18ee56795a8c96f669424_720w.jpg" alt="img"></p>
-<p>滑到页面底端，出现如下图所示就说明已经成功了：</p>
-<p><img src="https://pic1.zhimg.com/80/v2-6a000b836ae32c3d118c1fdeb4696f1c_720w.jpg" alt="img"></p>
-<p>接下来就是安装Hexo，首先在D盘建立一个文件夹 Blog，点开 Blog 文件夹，鼠标右键打开 Git Bush Here，输入npm命令安装Hexo：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://pic2.zhimg.com/80/v2-7b36dbcaf294d16ebcbf46888ff4ff5d_720w.jpg" alt="img"></p>
-<p>安装完成后，输入 hexo init 命令初始化博客：</p>
-<p><img src="https://pic1.zhimg.com/80/v2-e58d83d78710849cdc32321f122550e8_720w.jpg" alt="img"></p>
-<p>然后输入 hexo g 静态部署：</p>
-<p><img src="https://pic3.zhimg.com/80/v2-fdc87aa8600fdbbecdc0c9bc2c141412_720w.jpg" alt="img"></p>
-<p>这时网页已经部署完成，输入 hexo s 命令可以查看：</p>
-<p><img src="https://pic4.zhimg.com/80/v2-11a0b4917c962bab07a48f7a04160e8b_720w.png" alt="img"></p>
-<p>浏览器输入 <a href="https://link.zhihu.com/?target=http://baixin.io/2015/08/HEXO%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/%E5%B0%B1%E5%8F%AF%E4%BB%A5%E7%9C%8B%E5%88%B0%E6%9C%80%E5%8E%9F%E5%A7%8B%E7%9A%84%E6%95%88%E6%9E%9C%E4%BA%86">http://localhost:4000</a> 就可以打开新部署的网页：</p>
-<p><img src="https://pic3.zhimg.com/80/v2-5a8d3a94b1eb5e4e79f2e733ddaed2aa_720w.jpg" alt="img"></p>
-<p>看完之后 ctrl +c 停止运行服务器。</p>
-<h4 id="将Hexo部署到GitHub"><a href="#将Hexo部署到GitHub" class="headerlink" title="将Hexo部署到GitHub"></a>将Hexo部署到GitHub</h4><p>现在回到我们的 Blog 文件夹，用笔记本打开 _config.yml 文件，如下图：</p>
-<p><img src="https://pic3.zhimg.com/80/v2-b60225e9260cd78e1142e81c133b567a_720w.jpg" alt="img"></p>
-<p>下滑到文件底部，填上如下内容：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repository: https://github.com/NONAME00X/NONAME00X.github.io.git  #你的仓库地址</span><br><span class="line">  branch: main</span><br></pre></td></tr></table></figure>
-
-<p>注意空格：</p>
-<p><img src="https://pic3.zhimg.com/80/v2-7f9e09b1827fd9202088cc9d9b19880e_720w.png" alt="img"></p>
-<p>你的仓库地址就是下图这个：</p>
-<p><img src="https://pic3.zhimg.com/80/v2-5014abdff592085ca394335730020fae_720w.jpg" alt="img"></p>
-<p>然后回到 Blog 文件夹中，打开 Git Bash，安装Git部署插件，输入命令：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://pic4.zhimg.com/80/v2-a5172536904c8eaa602debc6e54c877b_720w.jpg" alt="img"></p>
-<p>然后分别输入以下三条命令：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo clean   #清除缓存文件 db.json 和已生成的静态文件 public</span><br><span class="line">hexo g       #生成网站静态文件到默认设置的 public 文件夹(hexo generate 的缩写)</span><br><span class="line">hexo d       #自动生成网站静态文件，并部署到设定的仓库(hexo deploy 的缩写)</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://pic1.zhimg.com/80/v2-54e0b045f1d46c70e740ec83a3552fe0_720w.jpg" alt="img"></p>
-<p>完成以后，打开浏览器，输入 <a href="https://link.zhihu.com/?target=https://fengye97.github.io/">https://xxx.github.io</a> 就可以打开你的网页了：</p>
-<p><img src="https://pic2.zhimg.com/80/v2-aa3a0b56dbcadf942397b8ea224b78b9_720w.jpg" alt="img"></p>
-<p>现在虽然可以访问我们的网站，但是网址是GitHub提供的：<a href="https://link.zhihu.com/?target=http://xxxx.github.io">http://xxxx.github.io</a> 而我们想使用我们自己的个性化域名，这就需要绑定我们自己的域名。下一篇介绍解析域名和绑定域名。</p>
-<h3 id="5-更换主题"><a href="#5-更换主题" class="headerlink" title="5. 更换主题"></a>5. 更换主题</h3><p>当前用得最多的是next主题，那为什么用得多呢？当然是符合大多数人的审美。我使用的是next(v7.7.1)，下载地址：<a href="https://link.zhihu.com/?target=https://github.com/theme-next/hexo-theme-next">theme-next/hexo-theme-next</a></p>
-<p>打开博客根目录Blog文件夹，右键Git Bash，输入如下代码将next主题下载到目录Blog/themes：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git clone https://github.com/theme-next/hexo-theme-next themes/next   最后两个themes/nextj</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://pic3.zhimg.com/80/v2-4d4e54afc1550a4e6af02fe489c696ce_720w.jpg" alt="img"></p>
-<p><img src="https://pic2.zhimg.com/80/v2-021a9180a69ad0e17e5da81289b19a65_720w.jpg" alt="img"></p>
-<p>打开根目录下的_config.yml(称为<strong>站点配置文件</strong>)，修改主题（<strong>注意冒号后都要有空格</strong>）：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># Site</span><br><span class="line">title: 枫叶苑  #标题</span><br><span class="line">subtitle: &#x27;&#x27;</span><br><span class="line">description: 选择有时候比努力更重要     #简介或者格言</span><br><span class="line">keywords:</span><br><span class="line">author: 枫叶     #作者</span><br><span class="line">language: zh-CN     #主题语言</span><br><span class="line">timezone: Asia/Shanghai    #中国的时区</span><br><span class="line"></span><br><span class="line"># Extensions</span><br><span class="line">## Plugins: https://hexo.io/plugins/</span><br><span class="line">## Themes: https://hexo.io/themes/</span><br><span class="line">theme: next   #主题改为next</span><br></pre></td></tr></table></figure>
-
-<p>主题语言主要是看你的themes/next/language中的简体中文是 zh-CN 还是 zh-Hans：</p>
-<p><img src="https://pic4.zhimg.com/80/v2-b0fb2299bceee4ab42f867344393ae9f_720w.jpg" alt="img"></p>
-<p>next主题有四种，如下图依次为Muse、Mist、Pisces、Gemini（反正我没看出来后两个有什么区别）：</p>
-<p><img src="https://pic4.zhimg.com/80/v2-80b50d2c94624c7da33a018e269325db_720w.jpg" alt="img"></p>
-<p><img src="https://pic1.zhimg.com/80/v2-b9137d53a1626f4ae1be79b181bb3f88_720w.jpg" alt="img"></p>
-<p><img src="https://pic1.zhimg.com/80/v2-3f000eb2cdf5bff60da3b68ff660e470_720w.jpg" alt="img"></p>
-<p><img src="https://pic2.zhimg.com/80/v2-6e7209c21235563b39db4c6d6359e0dd_720w.jpg" alt="img"></p>
-<p>我选的是Gemini，打开目录Blog/themes/next/下的_config.yml（称为<strong>主题配置文件</strong>），只要将你选的主题前的#删除就行了：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># Schemes</span><br><span class="line">#scheme: Muse</span><br><span class="line">#scheme: Mist</span><br><span class="line">#scheme: Pisces</span><br><span class="line">scheme: Gemini    #这是我选的主题</span><br></pre></td></tr></table></figure>
-
-<p>回到根目录打开Git Bash，输入如下三条命令：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
-
-<p>完成后打开你的博客：</p>
-<p><img src="https://pic3.zhimg.com/80/v2-f7fb0d06f6c256a445d3053a09aee726_720w.jpg" alt="img"></p>
-<p>问题：改主题为Gemini时，hexo clean，hexo g，hexo d 三个命令完成后主题未改变；</p>
-<p>解决办法：删除next下的.git文件夹（这好像是个隐藏文件夹），再上传时修改成功。</p>
-<p>附：后来我又发现用 hexo s 命令查看网页部署时是成功的，但是 hexo d 部署到GitHub上就不行，后来等一会就行了，可能是有延迟。</p>
-]]></content>
-      <tags>
-        <tag>科技</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/2021/11/03/Hello-World/</url>
-    <content><![CDATA[<h1 id="Hello-World"><a href="#Hello-World" class="headerlink" title="Hello World"></a>Hello World</h1><ul>
-<li>当你看到这条文章时，我的Blog搭建成功了(期间被我搞炸了无数次)</li>
-<li>Blog采用了github+hexo,主题为butterfly(随便糊了一下，还在搭建中……)</li>
-</ul>
-]]></content>
-      <tags>
-        <tag>搭建成功</tag>
       </tags>
   </entry>
   <entry>
@@ -297,25 +289,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Hexo文章注意事项</title>
-    <url>/2021/11/03/Hexo%E6%96%87%E7%AB%A0%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/</url>
-    <content><![CDATA[<h1 id="Hexo文章"><a href="#Hexo文章" class="headerlink" title="Hexo文章"></a>Hexo文章</h1><p>参考资料：<a href="https://blog.csdn.net/qq_43857095/article/details/108306164">(Hexo butterfly 自定义文章封面 &amp;&amp; 主页顶部图片更改</a></p>
-<p><a href="https://zhuanlan.zhihu.com/p/156915260">Hexo博客写文章及基本操作 - 知乎 (zhihu.com)</a></p>
-<p>踩过的坑：</p>
-<ol>
-<li>文章注明标签，修改封面时: tag:和cover后均要加空格</li>
-<li>/source/_posts文件夹中必须有md文章文件，不然hexo g时无法生成index</li>
-</ol>
-<h3 id="一些指令"><a href="#一些指令" class="headerlink" title="一些指令"></a>一些指令</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function">hexo <span class="title">new</span> <span class="params">(文章种类)</span> 文件名              <span class="comment">//括号内内容可不加。layout默认为post(文章)</span></span></span><br><span class="line"><span class="function">hexo clean     <span class="comment">//清楚生成的网页部署     //布局有三种：post（文章）、draft（草稿）、page（页面）</span></span></span><br><span class="line"><span class="function">hexo g         <span class="comment">//生成网页部署</span></span></span><br><span class="line"><span class="function">hexo s         <span class="comment">//本地服务器查看Blog网页 //地址一般为 http://localhost:4000/</span></span></span><br><span class="line"><span class="function">hexo d         <span class="comment">//将网页部署到Github托管以便访问=更新Blog</span></span></span><br></pre></td></tr></table></figure>
-
-<h4 id="Tips"><a href="#Tips" class="headerlink" title="Tips:"></a>Tips:</h4><p>Markdown语法学习：<a href="https://www.runoob.com/markdown/md-tutorial.html">Markdown 教程 | 菜鸟教程 (runoob.com)</a></p>
-<p>软件使用：Typora <a href="https://www.typora.net/">Typora中文</a></p>
-]]></content>
-      <tags>
-        <tag>学习</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>一些有用的网站</title>
     <url>/2021/11/03/%E4%B8%80%E4%BA%9B%E6%9C%89%E7%94%A8%E7%9A%84%E7%BD%91%E7%AB%99/</url>
     <content><![CDATA[<h1 id="一些有用的网站-持续更新ing"><a href="#一些有用的网站-持续更新ing" class="headerlink" title="一些有用的网站(持续更新ing)"></a>一些有用的网站(持续更新ing)</h1><ol>
@@ -330,6 +303,37 @@
 <li><p><a href="https://www.cnblogs.com/ldu-xingjiahui/p/12594024.html#%E4%BA%8C%E3%80%81%E5%88%9B%E5%BB%BA%E6%A0%87%E7%AD%BE%E3%80%81%E5%88%86%E7%B1%BB%E3%80%81%E5%85%B3%E4%BA%8E%E5%92%8C%E7%95%99%E8%A8%80%E7%89%88%E9%A1%B5%E9%9D%A2">短短1天我学会了如何修改Butterfly的配置文件 - XJHui - 博客园 (cnblogs.com)</a></p>
 </li>
 </ol>
+]]></content>
+      <tags>
+        <tag>学习</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2021/11/03/Hello-World/</url>
+    <content><![CDATA[<h1 id="Hello-World"><a href="#Hello-World" class="headerlink" title="Hello World"></a>Hello World</h1><ul>
+<li>当你看到这条文章时，我的Blog搭建成功了(期间被我搞炸了无数次)</li>
+<li>Blog采用了github+hexo,主题为butterfly(随便糊了一下，还在搭建中……)</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>搭建成功</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo文章注意事项</title>
+    <url>/2021/11/03/Hexo%E6%96%87%E7%AB%A0%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/</url>
+    <content><![CDATA[<h1 id="Hexo文章"><a href="#Hexo文章" class="headerlink" title="Hexo文章"></a>Hexo文章</h1><p>参考资料：<a href="https://blog.csdn.net/qq_43857095/article/details/108306164">(Hexo butterfly 自定义文章封面 &amp;&amp; 主页顶部图片更改</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/156915260">Hexo博客写文章及基本操作 - 知乎 (zhihu.com)</a></p>
+<p>踩过的坑：</p>
+<ol>
+<li>文章注明标签，修改封面时: tag:和cover后均要加空格</li>
+<li>/source/_posts文件夹中必须有md文章文件，不然hexo g时无法生成index</li>
+</ol>
+<h3 id="一些指令"><a href="#一些指令" class="headerlink" title="一些指令"></a>一些指令</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function">hexo <span class="title">new</span> <span class="params">(文章种类)</span> 文件名              <span class="comment">//括号内内容可不加。layout默认为post(文章)</span></span></span><br><span class="line"><span class="function">hexo clean     <span class="comment">//清楚生成的网页部署     //布局有三种：post（文章）、draft（草稿）、page（页面）</span></span></span><br><span class="line"><span class="function">hexo g         <span class="comment">//生成网页部署</span></span></span><br><span class="line"><span class="function">hexo s         <span class="comment">//本地服务器查看Blog网页 //地址一般为 http://localhost:4000/</span></span></span><br><span class="line"><span class="function">hexo d         <span class="comment">//将网页部署到Github托管以便访问=更新Blog</span></span></span><br></pre></td></tr></table></figure>
+
+<h4 id="Tips"><a href="#Tips" class="headerlink" title="Tips:"></a>Tips:</h4><p>Markdown语法学习：<a href="https://www.runoob.com/markdown/md-tutorial.html">Markdown 教程 | 菜鸟教程 (runoob.com)</a></p>
+<p>软件使用：Typora <a href="https://www.typora.net/">Typora中文</a></p>
 ]]></content>
       <tags>
         <tag>学习</tag>
